@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"strings"
+	"time"
 )
 
 type Product struct {
@@ -15,7 +16,8 @@ type Product struct {
 }
 
 func main() {
-	data, err := ioutil.ReadFile("data.json")
+	thisMoment := time.Now()
+	data, err := ioutil.ReadFile("data/data.json")
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return
@@ -37,4 +39,5 @@ func main() {
 		products = append(products, product)
 	}
 	fmt.Println("Total products:", len(products))
+	fmt.Println("Time taken:", time.Since(thisMoment))
 }

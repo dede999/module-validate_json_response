@@ -15,6 +15,10 @@ type Product struct {
 	LinkUrl     string  `json:"Link URL"`
 }
 
+func (p Product) String() string {
+	return fmt.Sprintf("Data: %s\nProduct Name: %s\nPrice: %f\nLink URL: %s\n-------\n", p.Data, p.ProductName, p.Price, p.LinkUrl)
+}
+
 func main() {
 	thisMoment := time.Now()
 	data, err := ioutil.ReadFile("data/data.json")
